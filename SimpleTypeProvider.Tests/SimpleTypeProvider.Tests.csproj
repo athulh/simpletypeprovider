@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E0EC239-B7A7-4972-BC99-3BE0AAA80923}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SimpleTypeProvider.Tests</RootNamespace>
+    <AssemblyName>SimpleTypeProvider.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleTypeProvider.Core\SimpleTypeProvider.Core.csproj">
+      <Project>{09F654EA-093A-45DA-BD53-5CB279AAD03E}</Project>
+      <Name>SimpleTypeProvider.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TypeRegisteredThroughRegistryReturnsConcreteType.cs" />
+    <Compile Include="TypeRegisteredThroughRegistryWithMethodReturnsConcreteType.cs" />
+    <Compile Include="TypeRegisteredWithFunctionIsAbleToUseInjection.cs" />
+    <Compile Include="TypeRegisteredWithFunctionReturnsPreparedConcreteType.cs" />
+    <Compile Include="Stubs\ISimpleType.cs" />
+    <Compile Include="Stubs\SimpleType.cs" />
+    <Compile Include="Stubs\SimpleTypeWithInitializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stubs\" />
+  </ItemGroup>
+</Project>
