@@ -59,6 +59,12 @@ namespace SimpleTypeProvider.Core
 		{ 
 			Activator.CreateInstance(registryType, this);
 		}
+
+        public void UseRegistry<TRegistry>()
+            where TRegistry : SimpleTypeRegistry
+        {
+            Activator.CreateInstance(typeof(TRegistry), this);
+        }
 	}
 }
 

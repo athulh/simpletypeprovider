@@ -9,6 +9,7 @@ namespace SimpleTypeProvider.Core
 		void Register(Type from, Type to);
         void Register<T>(Type from, Func<IContainer,T> cfg) where T : class;
         void UseRegistry(Type registry);
+        void UseRegistry<TRegistry>() where TRegistry : SimpleTypeRegistry;
 	}
 	
 }
