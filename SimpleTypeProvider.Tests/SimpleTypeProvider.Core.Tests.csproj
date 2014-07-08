@@ -30,9 +30,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
+    <Reference Include="nunit.framework" />
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -55,9 +53,10 @@
     <Compile Include="Stubs\ICalculateNumbers.cs" />
     <Compile Include="Stubs\ComplexType.cs" />
     <Compile Include="Stubs\NumberCalculator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="TypeWithMultipleDependenciesReturnsPreparedInstance.cs" />
+    <Compile Include="Stubs\EvenMoreComplexType.cs" />
+    <Compile Include="Stubs\IProvideValues.cs" />
+    <Compile Include="Stubs\NumberProvider.cs" />
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -66,4 +65,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <ItemGroup>
+    <Folder Include="Stubs\" />
+  </ItemGroup>
 </Project>

@@ -57,9 +57,7 @@ namespace SimpleTypeProvider.Core
 
             var genericMethod = getInstance.MakeGenericMethod(t);
          
-            var result =  genericMethod.Invoke(this, null);
-
-            return result;
+            return genericMethod.Invoke(this, null);
         }
 
         public bool HasInstance<T>()
