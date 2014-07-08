@@ -3,9 +3,9 @@ using System;
 namespace SimpleTypeProvider.Core.Tests
 {
 
-    public class ComplexType
+    public class ComplexType : IComplexType
     {
-        private ICalculateNumbers numberCalculator;
+        private readonly ICalculateNumbers numberCalculator;
 
         public ComplexType(ICalculateNumbers numberCalculator)
         {
