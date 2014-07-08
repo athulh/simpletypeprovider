@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SimpleTypeProvider.Core
 {
 	public class SimpleTypeProvider : IContext, IContainer
 	{
 		public static IContainer Container { get ; private set; }
+
+        public IResolveTypes TypeResolver { get; set; }
+
 		private IDictionary<Type,Type> _registeredTypes;
         private IDictionary<Type, Func<IContainer, dynamic>> _registeredFactoryMethods;
 
@@ -14,6 +18,7 @@ namespace SimpleTypeProvider.Core
         { 
             _registeredTypes = new Dictionary<Type,Type>();
             _registeredFactoryMethods = new Dictionary<Type, Func<IContainer, dynamic>>();
+            TypeResolver = new DefaultTypeResolver();
         }
 
 		public static IContainer Initialize(Action<IContext> cfg)
@@ -29,7 +34,7 @@ namespace SimpleTypeProvider.Core
 		{ 
             if (_registeredTypes.ContainsKey(typeof(T)))
             {
-                return (T)Activator.CreateInstance(_registeredTypes[typeof(T)]);
+                return TypeResolver.ResolveInstance<T>(_registeredTypes[typeof(T)], this);
             }
             else
             {
@@ -43,6 +48,29 @@ namespace SimpleTypeProvider.Core
 
 			return default(T);
 		}
+
+        public object GetInstance(Type t)
+        {
+            var getInstance = this.GetType().GetTypeInfo()
+                        .GetDeclaredMethods("GetInstance")
+                .SingleOrDefault(m => m.IsGenericMethod);
+
+            var genericMethod = getInstance.MakeGenericMethod(t);
+         
+            var result =  genericMethod.Invoke(this, null);
+
+            return result;
+        }
+
+        public bool HasInstance<T>()
+        {
+            return HasInstance(typeof(T));
+        }
+
+        public bool HasInstance(Type t)
+        {
+            return _registeredTypes.ContainsKey(t);
+        }
 			
 		public void Register(Type from, Type to)
 		{

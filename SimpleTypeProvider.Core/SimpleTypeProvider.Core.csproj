@@ -38,6 +38,8 @@
     <Compile Include="Infrastructure\IRegisterTypes.cs" />
     <Compile Include="Infrastructure\SimpleDependency.cs" />
     <Compile Include="Infrastructure\SimpleTypeRegistry.cs" />
+    <Compile Include="Infrastructure\IResolveTypes.cs" />
+    <Compile Include="Infrastructure\DefaultTypeResolver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

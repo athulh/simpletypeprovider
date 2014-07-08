@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTypeProvider.Core", "SimpleTypeProvider.Core\SimpleTypeProvider.Core.csproj", "{09F654EA-093A-45DA-BD53-5CB279AAD03E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTypeProvider.Tests", "SimpleTypeProvider.Tests\SimpleTypeProvider.Tests.csproj", "{1E0EC239-B7A7-4972-BC99-3BE0AAA80923}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTypeProvider.Core.Tests", "SimpleTypeProvider.Tests\SimpleTypeProvider.Core.Tests.csproj", "{1E0EC239-B7A7-4972-BC99-3BE0AAA80923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTypeProvider.Android", "SimpleTypeProvider.Android\SimpleTypeProvider.Android.csproj", "{818F02F3-17EA-4DA7-B3B3-9A94AB6914BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{1E0EC239-B7A7-4972-BC99-3BE0AAA80923}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0EC239-B7A7-4972-BC99-3BE0AAA80923}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0EC239-B7A7-4972-BC99-3BE0AAA80923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{818F02F3-17EA-4DA7-B3B3-9A94AB6914BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{818F02F3-17EA-4DA7-B3B3-9A94AB6914BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{818F02F3-17EA-4DA7-B3B3-9A94AB6914BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{818F02F3-17EA-4DA7-B3B3-9A94AB6914BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = SimpleTypeProvider.Core\SimpleTypeProvider.Core.csproj
